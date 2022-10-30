@@ -108,7 +108,7 @@ export default class ApmCard extends Component {
         </div>
 
         <li
-          className="list-group-item"
+          className="list-group-item list-group-item-light"
           onMouseEnter={() => this.setState({ btns: true })}
           style={this.state.booked ? { display: 'none' } : {}}
           onMouseLeave={() => {
