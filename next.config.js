@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   env: {
-    BACKEND_SERVER: 'http://localhost:5000',
+    BACKEND_SERVER: 'https://apm-json-server.vercel.app',
   },
   reactStrictMode: true,
   swcMinify: true,
