@@ -20,6 +20,7 @@ export default class ApmCard extends Component {
     this.handleName = this.handleName.bind(this);
     this.handleEmail = this.handleEmail.bind(this);
     this.handlePhone = this.handlePhone.bind(this);
+    this.testDiscord = this.testDiscord.bind(this);
   }
   confirmAppointment = event => {
     this.setState({ form: true });
@@ -51,6 +52,23 @@ export default class ApmCard extends Component {
       },
     });
   };
+
+  testDiscord = () => {
+    fetch(
+      'https://discord.com/api/webhooks/1022189972830306395/lXCQt0OuS44MvPraWk2_bauJz7dBmYKk6b1ocE5L7TVAlweWQh6iNP1E3GOjQ-uGBbjk',
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          username: 'Test results',
+          avatar_url: '',
+          content: `New Appointment has been set@ ${this.props.data.date} ${this.props.data.time} from: ${this.state.entries.name} ${this.state.entries.email} ${this.state.entries.phone}`,
+        }),
+      }
+    ).then(res => {
+      console.log(res);
+    });
+  };
   submitApm = event => {
     event.preventDefault();
     console.log(this.state.entries);
@@ -69,6 +87,8 @@ export default class ApmCard extends Component {
       requestOptions
     ).then(() => {
       this.setState({ booked: true });
+
+      this.testDiscord();
     });
   };
 
