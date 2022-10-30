@@ -7,7 +7,7 @@ export default class index extends Component {
   render() {
     return (
       <div className="container p-4 mx-auto">
-        <h1>hello</h1>
+        <h1>Select date and time to book an appointment.</h1>
         <hr />
         <ApmList serverURL={serverURL} />
       </div>
