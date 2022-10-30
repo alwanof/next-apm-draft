@@ -52,7 +52,16 @@ export default class ApmCard extends Component {
       },
     });
   };
-
+  longDate = date => {
+    var options = {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    };
+    var long = new Date(date + 'T00:00:00');
+    return long.toLocaleString('en-US', options);
+  };
   testDiscord = () => {
     fetch(
       'https://discord.com/api/webhooks/1022189972830306395/lXCQt0OuS44MvPraWk2_bauJz7dBmYKk6b1ocE5L7TVAlweWQh6iNP1E3GOjQ-uGBbjk',
@@ -62,7 +71,11 @@ export default class ApmCard extends Component {
         body: JSON.stringify({
           username: 'Test results',
           avatar_url: '',
-          content: `New Appointment has been set@ ${this.props.data.date} ${this.props.data.time} from: ${this.state.entries.name} ${this.state.entries.email} ${this.state.entries.phone}`,
+          content: `New Appointment has been set@ ${this.longDate(
+            this.props.data.date
+          )} ${this.props.data.time} from: ${this.state.entries.name} ${
+            this.state.entries.email
+          } ${this.state.entries.phone}`,
         }),
       }
     ).then(res => {
@@ -118,7 +131,7 @@ export default class ApmCard extends Component {
         >
           <i className="fa-regular fa-calendar-check mx-2"></i>
           <label className="form-check-label">
-            {this.props.data.date}
+            {this.longDate(this.props.data.date)}
             <i className="fa-regular fa-clock mx-1"></i>
             {this.props.data.time}
           </label>
