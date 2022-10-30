@@ -83,7 +83,7 @@ export default class ApmCard extends Component {
       }),
     };
     fetch(
-      'http://localhost:5000/apm/' + this.props.data.id,
+      process.env.BACKEND_SERVER + '/apm/' + this.props.data.id,
       requestOptions
     ).then(() => {
       this.setState({ booked: true });

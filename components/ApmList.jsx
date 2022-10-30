@@ -8,7 +8,8 @@ export default class ApmList extends Component {
     let today = new Date();
     today.setDate(today.getDate() + 1);
     today = this.convertDate(today);
-    const aURL = props.serverURL + '/apm?booked=false&date_gte=' + today;
+    const aURL =
+      process.env.BACKEND_SERVER + '/apm?booked=false&date_gte=' + today;
     this.state = {
       cards: [],
       url: aURL,
@@ -30,11 +31,6 @@ export default class ApmList extends Component {
       (ddChars[1] ? dd : '0' + ddChars[0])
     );
   }
-
-  // validate prpos
-  static propTypes = {
-    serverURL: PropTypes.string.isRequired,
-  };
 
   async componentDidMount() {
     const res = await fetch(this.state.url);
