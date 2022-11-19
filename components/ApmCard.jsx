@@ -64,12 +64,12 @@ export default class ApmCard extends Component {
   };
   testDiscord = () => {
     fetch(
-      'https://discord.com/api/webhooks/1022189972830306395/lXCQt0OuS44MvPraWk2_bauJz7dBmYKk6b1ocE5L7TVAlweWQh6iNP1E3GOjQ-uGBbjk',
+      'https://discord.com/api/webhooks/1036572779790729216/luY4IcHx070wpW743WrpwfdkbJXe17Frwv2bVLkES2D-P6ykz1EDR_MtawmN09haDQ-0',
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          username: 'Test results',
+          username: 'nOtify',
           avatar_url: '',
           content: `New Appointment has been set@ ${this.longDate(
             this.props.data.date
